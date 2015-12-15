@@ -1,0 +1,7 @@
+{
+  "generator-react-webpack": {
+    "appName": "mirror",
+    "style": "sass",
+    "postcss": false
+  }
+}
