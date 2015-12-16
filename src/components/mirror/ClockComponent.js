@@ -17,15 +17,18 @@ class ClockComponent extends React.Component {
   }
 
   componentDidMount() {
-    this.tick();
-    setInterval(this.tick.bind(this), 100);
+    this.interval = setInterval(this.tick.bind(this), 100);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.interval);
   }
 
   render() {
     return (
       <div className="clock-component">
-        {this.state.hours}:{this.state.minutes}{/*:{this.state.seconds}*/}
-        <span className="diem">{this.state.pm ? 'am' : 'pm'}</span>
+        {this.state.hours}:{this.state.minutes}
+        <span className="diem">{this.state.pm ? 'pm' : 'am'}</span>
       </div>
     );
   }

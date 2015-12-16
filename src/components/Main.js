@@ -5,17 +5,13 @@ import React from 'react';
 
 import ClockComponent from './mirror/ClockComponent';
 
-class AppComponent extends React.Component {
-  render() {
-    return (
-      <div className="index">
-        <ClockComponent />
-      </div>
-    );
-  }
-}
-
-AppComponent.defaultProps = {
+const AppComponent = () => {
+  return (
+    <div className="index">
+      <ClockComponent />
+      <hr />
+    </div>
+  );
 };
 
 export default AppComponent;
