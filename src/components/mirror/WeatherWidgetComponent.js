@@ -3,13 +3,15 @@
 import React from 'react';
 import jsonp from 'jsonp';
 
+import CurrentSummaryComponent from './weather/CurrentSummaryComponent';
+
 require('styles/mirror/WeatherWidget.sass');
 
 class WeatherWidgetComponent extends React.Component {
   constructor() {
     super();
 
-    this.state = { forecast: {} };
+    this.state = { forecast: null };
   }
 
   componentDidMount() {
@@ -22,11 +24,17 @@ class WeatherWidgetComponent extends React.Component {
   }
 
   render() {
-    return (
-      <div className="weather-widget-component">
-        <code><pre>{JSON.stringify(this.state.forecast, null, 2)}</pre></code>
-      </div>
-    );
+    if (this.state.forecast) {
+      return (
+        <div className="weather-widget-component">
+          <CurrentSummaryComponent data={this.state.forecast.currently} />
+
+          <code><pre>{JSON.stringify(this.state.forecast, null, 2)}</pre></code>
+        </div>
+      );
+    } else {
+      return <div className="weather-widget-component loading" />;
+    }
   }
 
   getForecast() {
