@@ -1,0 +1,60 @@
+@font-face {
+  font-family: "forecastfont";
+  font-weight: normal;
+  font-style: normal;
+  src: url("../fonts/forecastfont.woff") format("woff");
+}
+
+$color-sun: rgb(255, 165, 0);
+$color-moon: rgb(165, 205, 255);
+$color-cloud: rgb(204, 204, 204);
+$color-rain: rgb(70, 129, 195);
+$color-snow: rgb(133, 216, 247);
+
+$icons: (
+  // Standalone Icons
+  (sun, "\f113", $color-sun),
+  (moon, "\f10d", $color-moon),
+  (cloud, "\f106", $color-cloud),
+
+  // Base Icons
+  (basecloud, "\f105", $color-cloud),
+  (wind, "\f115", $color-cloud),
+  (mist, "\f108", $color-cloud),
+
+  // Time of Day Icons
+  (day, "\f101", $color-sun),
+  (night, "\f100", $color-moon),
+
+  // Condition Modifier Icons
+  (rain, "\f107", $color-rain),
+  (snow, "\f10b", $color-snow),
+  (sleet, "\f10c", $color-snow),
+);
+
+%icon {
+  position: absolute;
+
+  &:before {
+    font-family: "forecastfont";
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    text-decoration: inherit;
+  }
+}
+
+@each $name, $character, $color in $icons {
+  .icon-#{$name} {
+    @extend %icon;
+
+    &:before {
+      content: $character;
+      color: $color;
+    }
+  }
+}
