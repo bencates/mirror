@@ -1,5 +1,20 @@
+@font-face {
+  font-family: "PT Sans Narrow";
+  font-weight: normal;
+  font-style: normal;
+  src: url("../fonts/pt_sans_narrow.woff") format("woff");
+}
+@font-face {
+  font-family: "PT Sans Narrow";
+  font-weight: bold;
+  font-style: normal;
+  src: url("../fonts/pt_sans_narrow_bold.woff") format("woff");
+}
+
 /* Base Application Styles */
 body {
+  font-family: "PT Sans Narrow", sans-serif;
+  font-size: 24px;
   color: #fff;
   background: #222;
 }
