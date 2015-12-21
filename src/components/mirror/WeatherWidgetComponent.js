@@ -4,6 +4,7 @@ import React from 'react';
 import jsonp from 'jsonp';
 
 import CurrentSummaryComponent from './weather/CurrentSummaryComponent';
+import ForecastComponent from './weather/ForecastComponent';
 
 require('styles/mirror/WeatherWidget.sass');
 
@@ -28,6 +29,8 @@ class WeatherWidgetComponent extends React.Component {
       return (
         <div className="weather-widget-component">
           <CurrentSummaryComponent data={this.state.forecast.currently} />
+
+          <ForecastComponent data={this.state.forecast.daily.data} />
 
           <code><pre>{JSON.stringify(this.state.forecast, null, 2)}</pre></code>
         </div>
