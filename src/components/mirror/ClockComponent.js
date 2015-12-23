@@ -2,8 +2,6 @@
 
 import React from 'react';
 
-require('styles/mirror/Clock.sass');
-
 class ClockComponent extends React.Component {
   constructor() {
     super();
@@ -26,7 +24,7 @@ class ClockComponent extends React.Component {
 
   render() {
     return (
-      <div className="clock-component">
+      <div className="clock">
         {this.state.hours}:{this.state.minutes}
         <span className="diem">{this.state.pm ? 'pm' : 'am'}</span>
       </div>

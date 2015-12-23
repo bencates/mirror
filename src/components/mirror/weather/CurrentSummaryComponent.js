@@ -4,19 +4,20 @@ import React from 'react';
 
 import ConditionsIconComponent from './ConditionsIconComponent';
 
-require('styles/mirror/weather/CurrentSummary.sass');
-
 const CurrentSummaryComponent = props => {
   const data = props.data;
 
   return (
-    <div className="weather-current-summary-component">
+    <div className="current-summary">
       <div className="conditions">
         <ConditionsIconComponent icon={data.icon} />
       </div>
       <div className="temp">
         {Math.round(data.temperature)}
         <span className="unit">&deg;F</span>
+        <br />
+        {Math.round(data.humidity * 100)}
+        <span className="unit">%H</span>
       </div>
     </div>
   );

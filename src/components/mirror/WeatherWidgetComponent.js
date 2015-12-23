@@ -6,8 +6,6 @@ import jsonp from 'jsonp';
 import CurrentSummaryComponent from './weather/CurrentSummaryComponent';
 import ForecastComponent from './weather/ForecastComponent';
 
-require('styles/mirror/WeatherWidget.sass');
-
 class WeatherWidgetComponent extends React.Component {
   constructor() {
     super();
@@ -27,16 +25,16 @@ class WeatherWidgetComponent extends React.Component {
   render() {
     if (this.state.forecast) {
       return (
-        <div className="weather-widget-component">
+        <div className="weather">
           <CurrentSummaryComponent data={this.state.forecast.currently} />
 
           <ForecastComponent data={this.state.forecast.daily.data} />
 
-          <code><pre>{JSON.stringify(this.state.forecast, null, 2)}</pre></code>
+          {/* <code><pre>{JSON.stringify(this.state.forecast, null, 2)}</pre></code> */}
         </div>
       );
     } else {
-      return <div className="weather-widget-component loading" />;
+      return <div className="weather loading" />;
     }
   }
 

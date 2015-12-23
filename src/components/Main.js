@@ -10,7 +10,6 @@ const AppComponent = () => {
   return (
     <div className="index">
       <ClockComponent />
-      <hr />
       <WeatherWidgetComponent />
     </div>
   );

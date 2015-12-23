@@ -11,28 +11,102 @@
   src: url("../fonts/pt_sans_narrow_bold.woff") format("woff");
 }
 
+@import 'forecastfont';
+
+@mixin clearfix {
+    &:before, &:after {
+      content: " ";
+      display: table;
+    }
+    &:after {
+      clear: both;
+    }
+}
+
 /* Base Application Styles */
 body {
   font-family: "PT Sans Narrow", sans-serif;
-  font-size: 24px;
+  font-size: 60px;
   color: #fff;
-  background: #222;
+  background: #000;
 }
 
-.index img {
-  margin: 40px auto;
-  border-radius: 4px;
-  background: #fff;
-  display: block;
+* {
+  box-sizing: border-box;
 }
 
-.index .notice {
-  margin: 20px auto;
-  padding: 15px 0;
+// #app {
+//   // NOTE: screen size on mirror
+//   border: 1px solid #f00;
+//   width: 600px;
+//   height: 1024px;
+// }
+
+.clock {
+  font-size: 2em;
   text-align: center;
-  border: 1px solid #000;
-  border-width: 1px 0;
-  background: #666;
+
+  border-bottom: 1px solid #fff;
+
+  .diem {
+    font-variant: small-caps;
+  }
 }
 
-@import 'forecastfont';
+.weather {
+  .current-summary {
+    @include clearfix;
+
+    margin-bottom: 1em;
+
+    .conditions {
+      float: left;
+      position: relative;
+      font-size: 300px;
+      width: 300px;
+      height: 300px;
+    }
+
+    .temp {
+      float: right;
+      font-size: 1.6em;
+      margin-top: 60px;
+      margin-right: 20px;
+      text-align: right;
+    }
+  }
+
+  .forecast {
+    .day {
+      position: relative;
+      width: 20%;
+      float: left;
+
+      border-right: 1px solid #fff;
+      &:last-child { border-right: none }
+
+      .day-name {
+        position: absolute;
+        top: 0;
+        left: 10px;
+        font-size: 0.4em;
+      }
+
+      .conditions {
+        width: 100px;
+        height: 100px;
+        font-size: 100px;
+        margin: 15px auto;
+      }
+
+      .temp {
+        text-align: center;
+        font-size: 0.5em;
+
+        .lo { color: rgb(133, 216, 247); }
+        .hi { color: #F44; }
+      }
+    }
+
+  }
+}
